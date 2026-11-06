@@ -52,7 +52,7 @@ def call_ollama(ticket: str) -> dict:
         "format": SCHEMA,
         "messages": [
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": f"請分析以下客服信件：\\n{ticket}"}
+            {"role": "user", "content": f"請分析以下客服信件：\n{ticket}"}
         ],
         "options": {"temperature": 0.2}
     }
@@ -144,7 +144,7 @@ def main() -> int:
     output = Path(args.output)
     render_page(ticket, result, mode, output)
     print(json.dumps({"ticket": ticket, **result, "html": str(output)}, ensure_ascii=False, indent=2))
-    print(f"\\n網頁已產生：{output}")
+    print(f"\n網頁已產生：{output}")
     return 0
 
 
