@@ -1,0 +1,10 @@
+[project]
+name = "ai-customer-support-classifier"
+version = "1.0.0"
+description = "Ollama structured-output customer support ticket classifier with GitHub Pages demo"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.uv]
+package = false
