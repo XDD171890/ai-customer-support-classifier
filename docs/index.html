@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 客服信件分類器</title>
+<style>
+body{margin:0;background:#f5f7fb;color:#202938;font-family:system-ui,"Noto Sans TC",sans-serif;line-height:1.7}header{background:linear-gradient(120deg,#312e81,#6366f1);color:white;padding:42px 22px}main{max-width:900px;margin:28px auto;padding:0 18px}section{background:white;border:1px solid #e5eaf1;border-radius:16px;padding:24px;margin:18px 0}h1{margin:0}h2{font-size:20px}.muted{color:#64748b;font-size:14px}.ticket,.reply{white-space:pre-wrap;background:#f8fafc;border:1px solid #e5eaf1;border-radius:10px;padding:16px}.pill{display:inline-block;padding:5px 12px;border-radius:999px;background:#eef2ff;color:#3730a3;font-weight:bold;margin-right:8px}.high{background:#fee2e2;color:#991b1b}code{background:#eef2ff;padding:2px 6px;border-radius:5px}footer{text-align:center;color:#64748b;padding:24px}
+</style></head>
+<body><header><h1>AI 客服信件分類器</h1><p>使用 Python + Ollama，將客服信件轉成結構化案件資訊與建議回覆。</p></header>
+<main>
+<section><h2>1. 做了什麼</h2><p>輸入客服信件，AI 自動判斷案件分類、優先級、問題摘要，並產生客服建議回覆。</p><p class="muted">技術：Python 3.10+、uv、Ollama、qwen2.5:3b、JSON Schema 結構化輸出。</p></section>
+<section><h2>2. 執行方式</h2><ol><li>安裝 Python 與 uv。</li><li>安裝並啟動 Ollama。</li><li>執行 <code>ollama pull qwen2.5:3b</code>。</li><li>執行 <code>uv run python -m faq_assistant.main --ticket "你的客服信件"</code>。</li></ol></section>
+<section><h2>3. 執行結果（固定示範資料）</h2><p>輸入：你好，我昨天已經付款成功，但登入後系統仍顯示尚未付款，無法使用進階功能。</p><p><span class="pill">分類：帳務付款</span><span class="pill high">優先級：高</span></p><h3>問題摘要</h3><p>使用者已完成信用卡付款，但系統仍顯示未付款，導致無法使用進階功能。</p><h3>AI 建議回覆</h3><div class="reply">您好，造成您的困擾非常抱歉。我們會先核對交易紀錄與帳務狀態，請您提供訂單編號或付款時間（請勿提供完整信用卡號）。確認後會協助更新付款狀態，謝謝您的耐心等候。</div></section>
+<section><h2>4. AI 使用說明</h2><ul><li>模型：Ollama 本機模型 qwen2.5:3b。</li><li>呼叫方式：Python 使用 urllib 呼叫 Ollama 的 <code>/api/chat</code>。</li><li>AI 能力：使用 JSON Schema 限制輸出欄位與允許值，屬於結構化輸出（Structured Output）。</li><li>資料安全：預設使用本機 Ollama；請勿輸入密碼或完整信用卡號等敏感資料。</li></ul></section>
+<section><h2>專案原始碼</h2><p>GitHub Actions 會以示範資料產生此頁面並部署到 GitHub Pages。此頁面是靜態展示頁；實際 AI 即時分析需在已安裝並啟動 Ollama 的電腦執行 Python 程式。</p></section>
+</main><footer>AI 客服信件分類器 · Python / Ollama / GitHub Actions / GitHub Pages</footer></body></html>
